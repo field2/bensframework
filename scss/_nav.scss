@@ -6,13 +6,14 @@ nav a {
 nav#primary {
     position: relative;
     transition: transform 0.3s;
-
+width:100%;
     > ul {
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 1000px) {
             position: fixed;
             width: 100%;
             left: 100vw;
             flex-direction: column;
+            align-items:center;
         }
     }
 
@@ -46,7 +47,7 @@ nav#primary {
         }
     }
 
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 1000px) {
         .submenu {
             position: absolute;
             left: -9999em;
