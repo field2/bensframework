@@ -4,6 +4,9 @@ and https://html5boilerplate.com/
 and https://www.isotoma.com/blog/2016/09/07/going-all-in-on-flexbox/
 used in this framework
 */
+
+@import 'icons';
+@import 'nav';
 body {
     height: 100%;
     display: flex;
@@ -61,6 +64,15 @@ header, footer {
     color: #999;
 }
 
+header {
+    h1 {
+        font-size:1.6rem;
+    }
+    @media screen and (max-width:500px) {
+        text-align: left;
+    }
+}
+
 a {
     color: #62839c;
 
@@ -72,59 +84,12 @@ a {
 #content {
     max-width:1000px;
     margin:0 auto;
-    
+
 transition:transform 0.3s;
 }
 
 .reveal {
     transform:translateX(-100vw);
-}
-nav a {
-    text-decoration: none;
-}
-
-/* nav#primary */
-nav#primary {
-    position: relative;
-transition:transform 0.3s;
-    ul {
-        background: #fff;
-        display: flex;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        justify-content: center;
-
-        @media screen and (max-width: 500px) {
-            flex-direction: column;
-            position: fixed;
-            width: 100%;
-            left: 100vw;
-        }
-
-        li {
-            position: relative;
-
-            &:hover {
-                .submenu {
-                    left: -60px;
-                }
-            }
-        }
-
-        a {
-            display: block;
-            padding: 0.5em 1em;
-        }
-    }
-
-    .submenu {
-        position: absolute;
-        left: -9999em;
-        flex-direction: column;
-        width: 200px;
-        background: #fff;
-    }
 }
 
 #menutoggle {
@@ -132,8 +97,7 @@ transition:transform 0.3s;
     position: absolute;
     right: 1em;
     top: 1em;
-    content: "Expand menu";
-
+cursor:pointer;
     @media screen and (max-width: 500px) {
         display: block;
     }

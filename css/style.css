@@ -4,6 +4,79 @@ and https://html5boilerplate.com/
 and https://www.isotoma.com/blog/2016/09/07/going-all-in-on-flexbox/
 used in this framework
 */
+.icon {
+  font-size: 10px; }
+
+.icon:before {
+  content: ' ';
+  vertical-align: middle;
+  display: inline-block;
+  background-image: url("../images/svg/sprite.svg");
+  background-repeat: no-repeat;
+  background-size: 1.6em 1.6em; }
+
+.no-svg .icon:before {
+  background-image: url("../images/svg/sprite.png"); }
+
+.icon.menu_lines:before {
+  background-position: 0em 0em;
+  width: 1.6em;
+  height: 1.6em; }
+
+nav a {
+  text-decoration: none; }
+
+/* nav#primary */
+nav#primary {
+  position: relative;
+  -webkit-transition: -webkit-transform 0.3s;
+          transition: transform 0.3s; }
+  @media screen and (max-width: 500px) {
+    nav#primary > ul {
+      position: fixed;
+      width: 100%;
+      left: 100vw; } }
+  nav#primary ul {
+    background: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    z-index: 1; }
+    nav#primary ul li {
+      position: relative; }
+      nav#primary ul li .submenu {
+        margin-bottom: 1em; }
+      nav#primary ul li:hover .submenu {
+        left: -60px; }
+    nav#primary ul a {
+      display: block;
+      padding: 0.5em 1em; }
+  @media screen and (min-width: 1000px) {
+    nav#primary ul {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row; }
+    nav#primary .submenu {
+      position: absolute;
+      left: -9999em;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      width: 200px;
+      background: #fff; } }
+
 body {
   height: 100%;
   display: -webkit-box;
@@ -55,6 +128,13 @@ header, footer {
   padding: 0.5em;
   color: #999; }
 
+header h1 {
+  font-size: 1.6rem; }
+
+@media screen and (max-width: 500px) {
+  header {
+    text-align: left; } }
+
 a {
   color: #62839c; }
   a:hover {
@@ -70,57 +150,12 @@ a {
   -webkit-transform: translateX(-100vw);
           transform: translateX(-100vw); }
 
-nav a {
-  text-decoration: none; }
-
-/* nav#primary */
-nav#primary {
-  position: relative;
-  -webkit-transition: -webkit-transform 0.3s;
-          transition: transform 0.3s; }
-  nav#primary ul {
-    background: #fff;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center; }
-    @media screen and (max-width: 500px) {
-      nav#primary ul {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
-        position: fixed;
-        width: 100%;
-        left: 100vw; } }
-    nav#primary ul li {
-      position: relative; }
-      nav#primary ul li:hover .submenu {
-        left: -60px; }
-    nav#primary ul a {
-      display: block;
-      padding: 0.5em 1em; }
-  nav#primary .submenu {
-    position: absolute;
-    left: -9999em;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    width: 200px;
-    background: #fff; }
-
 #menutoggle {
   display: none;
   position: absolute;
   right: 1em;
   top: 1em;
-  content: "Expand menu"; }
+  cursor: pointer; }
   @media screen and (max-width: 500px) {
     #menutoggle {
       display: block; } }

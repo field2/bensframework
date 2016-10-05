@@ -1,0 +1,24 @@
+.icon {
+    font-size: 10px;
+}
+
+.icon:before {
+    content:' ';
+    vertical-align:middle;
+    display: inline-block;
+    background-image: url("../images/svg/sprite.svg");
+    background-repeat: no-repeat;
+    background-size: 1.6em 1.6em;
+}
+
+.no-svg .icon:before {
+    background-image: url("../images/svg/sprite.png");
+}
+
+
+
+  .icon.menu_lines:before {
+      background-position: 0em 0em;
+      width: 1.6em;
+      height: 1.6em;
+  }
