@@ -8,17 +8,17 @@ nav#primary {
     transition: transform 0.3s;
 
     > ul {
-        @media screen and (max-width: 500px) {
+        @media screen and (max-width: 800px) {
             position: fixed;
             width: 100%;
             left: 100vw;
+            flex-direction: column;
         }
     }
 
     ul {
         background: #fff;
         display: flex;
-        flex-direction: column;
         list-style: none;
         margin: 0;
         padding: 0;
@@ -29,6 +29,7 @@ nav#primary {
             position: relative;
 
             .submenu {
+                flex-direction: column;
                 margin-bottom: 1em;
             }
 
@@ -46,13 +47,9 @@ nav#primary {
     }
 
     @media screen and (min-width: 1000px) {
-        ul {
-            flex-direction:row;
-        }
         .submenu {
             position: absolute;
             left: -9999em;
-            flex-direction: column;
             width: 200px;
             background: #fff;
         }

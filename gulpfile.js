@@ -40,7 +40,7 @@ gulp.task('sprites', function() {
         .pipe(svgSprite({
             cssFile: 'scss/_icons.scss' //doesn't work. I want to put _icons.scss in the scss folder so I can include it in my main scss file
         }))
-        .pipe(gulp.dest("images"));
+        .pipe(gulp.dest("./"));
 });
 
 

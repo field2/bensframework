@@ -6,19 +6,42 @@
     content:' ';
     vertical-align:middle;
     display: inline-block;
-    background-image: url("../images/svg/sprite.svg");
+    background-image: url("../svg/sprite.svg");
     background-repeat: no-repeat;
-    background-size: 1.6em 1.6em;
+    background-size: 1.6em 4.8em;
 }
 
 .no-svg .icon:before {
-    background-image: url("../images/svg/sprite.png");
+    background-image: url("../svg/sprite.png");
 }
 
 
 
-  .icon.menu_lines:before {
+  .icon.arrow_up:before {
       background-position: 0em 0em;
       width: 1.6em;
       height: 1.6em;
   }
+
+
+
+
+  .icon.close:before {
+      background-position: 0em -1.6em;
+      width: 1.6em;
+      height: 1.6em;
+  }
+
+
+
+
+  .icon.menu_lines:before {
+      background-position: 0em -3.2em;
+      width: 1.6em;
+      height: 1.6em;
+  }
+
+
+
+
+

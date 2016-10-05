@@ -11,15 +11,16 @@ jQuery(document).ready(function($) {
 
     //Check to see if the window is top if not then display button
     $(window).scroll(function() {
-        if ($(this).scrollTop() > 100) {
-            $('.scroll').fadeIn();
+        var headerheight = $('header').height();
+        if ($(this).scrollTop() > headerheight) { //set to the header height
+            $('#scroll').fadeIn();
         } else {
-            $('.scroll').fadeOut();
+            $('#scroll').fadeOut();
         }
     });
 
     //Click event to scroll to top
-    $('.scroll').click(function() {
+    $('#scroll').click(function() {
         $('html, body').animate({
             scrollTop: 0
         }, 400);

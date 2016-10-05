@@ -5,8 +5,9 @@ and https://www.isotoma.com/blog/2016/09/07/going-all-in-on-flexbox/
 used in this framework
 */
 
-@import 'icons';
-@import 'nav';
+@import "icons";
+@import "nav";
+
 body {
     height: 100%;
     display: flex;
@@ -15,7 +16,7 @@ body {
     text-align: center;
     font-family: -apple-system, BlinkMacSystemFont,  "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",  "Fira Sans", "Droid Sans", "Helvetica Neue",  sans-serif;
 
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 800px) {
         padding: 0 0.5em;
     }
 }
@@ -53,6 +54,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #main, #sidebar {
     text-align: left;
+
     h1, h2, h3, h4 {
         margin-top: 1em;
     }
@@ -66,9 +68,10 @@ header, footer {
 
 header {
     h1 {
-        font-size:1.6rem;
+        font-size: 1.6rem;
     }
-    @media screen and (max-width:500px) {
+
+    @media screen and (max-width: 800px) {
         text-align: left;
     }
 }
@@ -82,26 +85,40 @@ a {
 }
 
 #content {
-    max-width:1000px;
-    margin:0 auto;
-
-transition:transform 0.3s;
+    max-width: 800px;
+    margin: 0 auto;
+    transition: transform 0.3s;
 }
 
 .reveal {
-    transform:translateX(-100vw);
+    transform: translateX(-100vw);
+}
+
+#menutoggle, #scroll {
+    display: none;
+    cursor: pointer;
 }
 
 #menutoggle {
-    display: none;
+
     position: absolute;
-    right: 1em;
+   right: 1em;
     top: 1em;
-cursor:pointer;
-    @media screen and (max-width: 500px) {
+
+    @media screen and (max-width: 800px) {
         display: block;
     }
+
 }
+
+ #scroll {
+    position:fixed;
+  right: 1em;
+    top: 40vh;
+   
+}
+
+
 
 /* grid */
 .row {
@@ -109,10 +126,10 @@ cursor:pointer;
     text-align: center;
     flex-direction: row;
     flex: 1 0 auto;
-    align-items:flex-start;
+    align-items: flex-start;
     padding: var(--space) var(--space) 0;
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 800px) {
         display: block;
     }
 }
@@ -136,6 +153,5 @@ cursor:pointer;
 }
 
 .three_quarter {
-        flex: 0 0 (100 / 1.3 - 2%); 
+    flex: 0 0 (100 / 1.3 - 2%);
 }
-
