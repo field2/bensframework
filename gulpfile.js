@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     autoprefixer = require('gulp-autoprefixer'),
     imagemin = require('gulp-imagemin'),
+    // handlebars = require('gulp-handlebars'),
     svgSprite = require("gulp-svg-sprites");
 
 
