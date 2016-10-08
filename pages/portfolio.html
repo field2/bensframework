@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block styles %}
+<link href="/css/lightbox.css" rel="stylesheet">
+{% endblock %}
+
+{% block scripts %}
+<script src="/js/lightbox.js"></script>
+{% endblock %}
+
+
+
+{% block content %}
+ <div id="main" class="full">
+  <a href="/images/portfolio/black.jpg" data-lightbox="image-1" data-title="My caption"><img src="/images/portfolio/black_thumb.jpg"></a>
+    </div><!-- /#main  -->
+
+  <script src="/js/lightbox.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+  $('.gallery').featherlightGallery();
+});
+  </script>
+{% endblock %}

@@ -17,5 +17,6 @@
     "gulp-sourcemaps": "^1.5",
     "gulp-svg-sprites": "^4.0.2",
     "gulp-util": "^2.2.0",
+    "gulp-nunjucks": "^2.3.0",
   }
 }
