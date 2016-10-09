@@ -10,46 +10,47 @@ var nunjucksRender = require('gulp-nunjucks-render');
 var svgSprite = require("gulp-svg-sprites");
 var sassOptions = { outputStyle: 'expanded' };
 
-gulp.task('watch', function() {
-    gulp.watch('./scss/*.scss', ['sass']).on('change', function(event) {
-        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-    });
-    gulp.watch('./pages/*.html', ['nunjucks']).on('change', browserSync.reload);
-
-});
-
-gulp.task('browser-sync', function() {
-    browserSync.init({
+gulp.task('watch', ['sass', 'nunjucks'], function() {
+browserSync.init({
         server: {
             baseDir: './build'
         }
     });
+    gulp.watch('./scss/*.scss', ['sass']).on('change', function(event) {
+        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+    });
+    gulp.watch('./pages/*.html', ['nunjucks']);
+
 });
 
 
+
+gulp.task('bs-reload', function () {
+    browserSync.reload();
+});
+
+
+
 gulp.task('sass', function() {
-    gulp.src('scss/*.scss')
-        .pipe(sourcemaps.init())
-        .pipe(plumber())
+   return gulp.src('scss/*.scss')
+        // .pipe(sourcemaps.init())
+        // .pipe(plumber())
         .pipe(sass(sassOptions).on('error', sass.logError))
         .pipe(autoprefixer('last 2 version'))
-        .pipe(sourcemaps.write('./'))
+        // .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('build/css'))
-        .pipe(browserSync.stream());
+         .pipe(browserSync.reload({ stream: true}));
 });
 
 
 gulp.task('nunjucks', function() {
     nunjucksRender.nunjucks.configure(['./templates/']);
-    // Gets .html and .nunjucks files in pages
     return gulp.src('./pages/*.html')
-        // Renders template with nunjucks
       .pipe(nunjucksRender({
             path: ['templates']
         }))
-        // output files in dist folder
         .pipe(gulp.dest('build'))
-        .pipe(browserSync.stream());
+        .pipe(browserSync.reload({ stream: true}));
 
 });
 
@@ -70,4 +71,4 @@ gulp.task('sprites', function() {
 
 
 /* default task, runs with just gulp */
-gulp.task('default', ['sass', 'nunjucks', 'watch', 'browser-sync']);
+gulp.task('default', ['watch']);
