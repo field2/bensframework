@@ -21,13 +21,15 @@
     <div id="menutoggle"><i class="icon menu_lines"></i></div>
     <!-- /#menutoggle  -->
     <header>
-        <h1>{{ pagetitle }}</h1></header>
+        <h1>Title here</h1></header>
     <nav id="primary">
-        {% include "nav.njs" %}
+        {% include "partials/nav.html" %}
     </nav>
     <!-- /#primary  -->
+    <div id="content" class="row">
         {% block content %} {% endblock %}
-
+    </div>
+    <!--  /#content -->
     <footer>&copy; 2016 Your company ::
         <nav id="contact"><a href="tel:5555555555">716.555.5555</a> :: <a href="mailto:info@yourcompany.com">info@yourcompany.com</a></nav>
     </footer>
