@@ -1,24 +1,29 @@
-var gulp = require('gulp'),
-    sass = require('gulp-sass'),
-    plumber = require('gulp-plumber'),
-    sourcemaps = require('gulp-sourcemaps'),
-    livereload = require('gulp-livereload'),
-    autoprefixer = require('gulp-autoprefixer'),
-    imagemin = require('gulp-imagemin'),
-    nunjucksRender = require('gulp-nunjucks-render'),
-    svgSprite = require("gulp-svg-sprites"),
-    browserSync = require('browser-sync').create();
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var plumber = require('gulp-plumber');
+var sourcemaps = require('gulp-sourcemaps');
+var livereload = require('gulp-livereload');
+var autoprefixer = require('gulp-autoprefixer');
+var imagemin = require('gulp-imagemin');
+var browserSync = require('browser-sync').create();
+var nunjucksRender = require('gulp-nunjucks-render');
+var svgSprite = require("gulp-svg-sprites");
+var sassOptions = { outputStyle: 'expanded' };
 
+gulp.task('watch', function() {
+    gulp.watch('./scss/*.scss', ['sass']).on('change', function(event) {
+        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+    });
+    gulp.watch('./pages/*.html', ['nunjucks']).on('change', browserSync.reload);
 
-gulp.task('serve', ['nunjucks','sass'], function() {
+});
+
+gulp.task('browser-sync', function() {
     browserSync.init({
-       server: {
-            baseDir: "./build"
+        server: {
+            baseDir: './build'
         }
     });
-    gulp.watch('**/*.scss', ['sass']);
-    gulp.watch("build/*.html").on('change', browserSync.reload);
-
 });
 
 
@@ -26,7 +31,7 @@ gulp.task('sass', function() {
     gulp.src('scss/*.scss')
         .pipe(sourcemaps.init())
         .pipe(plumber())
-        .pipe(sass())
+        .pipe(sass(sassOptions).on('error', sass.logError))
         .pipe(autoprefixer('last 2 version'))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('build/css'))
@@ -34,12 +39,15 @@ gulp.task('sass', function() {
 });
 
 
-
 gulp.task('nunjucks', function() {
-    return gulp.src('pages/*.html')
-        .pipe(nunjucksRender({
+    nunjucksRender.nunjucks.configure(['./templates/']);
+    // Gets .html and .nunjucks files in pages
+    return gulp.src('./pages/*.html')
+        // Renders template with nunjucks
+      .pipe(nunjucksRender({
             path: ['templates']
         }))
+        // output files in dist folder
         .pipe(gulp.dest('build'))
         .pipe(browserSync.stream());
 
@@ -62,4 +70,4 @@ gulp.task('sprites', function() {
 
 
 /* default task, runs with just gulp */
-gulp.task('default', ['serve']);
+gulp.task('default', ['sass', 'nunjucks', 'watch', 'browser-sync']);

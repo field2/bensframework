@@ -138,6 +138,9 @@ a {
     }
 }
 
+.full_content {
+    padding:0 1em;
+}
 
 .btn {
     @include btn(#00f);
