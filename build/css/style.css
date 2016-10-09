@@ -4,6 +4,65 @@ and https://html5boilerplate.com/
 and https://www.isotoma.com/blog/2016/09/07/going-all-in-on-flexbox/
 used in this framework
 */
+/* grid */
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: var(--space) var(--space) 0;
+  clear: both; }
+  @media screen and (max-width: 1000px) {
+    .row {
+      display: block; } }
+
+.box {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: .5em;
+  margin: 1%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.fixed_width {
+  max-width: 1000px;
+  padding: 0; }
+
+.one_quarter {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 23%;
+          flex: 0 0 23%; }
+
+.half {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 48%;
+          flex: 0 0 48%; }
+
+.three_quarter {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 74.92308%;
+          flex: 0 0 74.92308%; }
+
 .icon {
   font-size: 10px; }
 
@@ -97,14 +156,12 @@ h1, h2, h3, h4, h5, h6 {
   text-rendering: optimize-legibility; }
 
 #content {
-  max-width: 1000px;
   -webkit-transition: -webkit-transform 0.3s;
           transition: transform 0.3s;
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
-  /* 2 */
-  padding: var(--space) var(--space) 0;
+  margin: 0 1em;
   width: 100%; }
   #content h2 {
     font-size: 1.4rem; }
@@ -124,10 +181,7 @@ h1, h2, h3, h4, h5, h6 {
   #content::after {
     margin-top: var(--space-lg); } }
 
-#content--full {
-  padding: 0; }
-
-#content--full::after {
+#content:after {
   content: none; }
 
 #main, #sidebar {
@@ -177,59 +231,13 @@ a {
   right: 1em;
   top: 40vh; }
 
-/* grid */
-.row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  text-align: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  padding: var(--space) var(--space) 0; }
-  @media screen and (max-width: 1000px) {
-    .row {
-      display: block; } }
-
-.box {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: .5em;
-  margin: 1%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between; }
-
-.one_quarter {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 23%;
-          flex: 0 0 23%; }
-
-.half {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 48%;
-          flex: 0 0 48%; }
-
-.three_quarter {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 74.92308%;
-          flex: 0 0 74.92308%; }
+#banner {
+  width: 100%;
+  height: 40vh;
+  overflow: hidden; }
+  #banner img {
+    display: block;
+    width: 100%; }
 
 .btn {
   background: #000099;
