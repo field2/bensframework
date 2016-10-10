@@ -15,15 +15,14 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     
-<link href="/css/lightbox.css" rel="stylesheet">
- 
+<link href="/css/lightbox.css" rel="stylesheet">  
 </head>
 
 <body class="home">
     <div id="menutoggle"><i class="icon menu_lines"></i></div>
     <!-- /#menutoggle  -->
     <header>
-        <h1></h1></header>
+        <h1>Portfolio page</h1></header>
     <nav id="primary">
         <ul>
     <li>
@@ -69,16 +68,19 @@
     </nav>
     <!-- /#primary  -->
         
- <div id="main" class="full">
-  <a href="/images/portfolio/black.jpg" data-lightbox="image-1" data-title="My caption"><img src="/images/portfolio/black_thumb.jpg"></a>
-    </div><!-- /#main  -->
-
-  <script src="/js/lightbox.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function(){
-  $('.gallery').featherlightGallery();
+<div id="content">
+    <div id="main">
+        <a href="/images/portfolio/black.jpg" data-lightbox="image-1" data-title="My caption"><img src="/images/portfolio/black_thumb.jpg"></a>
+    </div>
+    <!-- /#main  -->
+</div>
+<!-- /#content  -->
+<script src="/js/lightbox.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.gallery').featherlightGallery();
 });
-  </script>
+</script>
 
 
     <footer>&copy; 2016 Your company ::

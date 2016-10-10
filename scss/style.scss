@@ -11,6 +11,10 @@ used in this framework
 @import "nav";
 @import "ie";
 
+* {
+    box-sizing:border-box;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -40,7 +44,9 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     flex: 1 0 auto;
+    @media screen and (max-width:1000px) {
   margin: 0 1em;
+}
     width: 100%;
 }
  
@@ -144,4 +150,14 @@ a {
 
 .btn {
     @include btn(#00f);
+}
+
+
+.callout {
+    text-align: left;
+    h3 {
+        text-align: center;
+    }
+    border:1px solid;
+    padding:.5em;
 }

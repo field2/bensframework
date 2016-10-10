@@ -1,4 +1,5 @@
 /* grid */
+
 .row {
     display: flex;
     text-align: center;
@@ -6,7 +7,7 @@
     flex: 1 0 auto;
     align-items: flex-start;
     padding: var(--space) var(--space) 0;
-    clear:both;
+    clear: both;
     @media screen and (max-width: 1000px) {
         display: block;
     }
@@ -17,14 +18,13 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    padding: .5em;
     margin: 1%;
     justify-content: space-between;
 }
 
 .fixed_width {
     max-width: 1000px;
-    padding:0;
+    padding: 0;
 }
 
 .one_quarter {
@@ -37,4 +37,16 @@
 
 .three_quarter {
     flex: 0 0 (100 / 1.3 - 2%);
+}
+
+.one_third {
+    flex: 0 0 (32%);
+    @media screen and (min-width:1000px) {
+    &:first-of-type {
+        margin-left: 0;
+    }
+    &:nth-of-type(3n+3) {
+        margin-right: 0;
+    }
+}
 }

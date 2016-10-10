@@ -44,8 +44,8 @@ gulp.task('sass', function() {
 
 
 gulp.task('nunjucks', function() {
-    nunjucksRender.nunjucks.configure(['./templates/']);
-    return gulp.src('./pages/*.html')
+    nunjucksRender.nunjucks.configure(['templates']);
+    return gulp.src('pages/*.html')
       .pipe(nunjucksRender({
             path: ['templates']
         }))
@@ -64,9 +64,9 @@ gulp.task('imagemin', function() {
 gulp.task('sprites', function() {
     return gulp.src('source/svg/*.svg')
         .pipe(svgSprite({
-            cssFile: 'scss/_icons.scss'
+            cssFile: 'scss/_icons.scss',
         }))
-        .pipe(gulp.dest("build/images/sprite.svg"));
+        .pipe(gulp.dest("build"));
 });
 
 
