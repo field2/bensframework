@@ -8,12 +8,13 @@ nav a {
 nav#primary {
     position: relative;
     transition: transform 0.3s;
+    will-change: transform;
     width: 100%;
     > ul {
         @media screen and (max-width: 1000px) {
             position: fixed;
             width: 100%;
-            left: 100vw;
+           transform: translateX(100vw);
             flex-direction: column;
             font-size:1.4em;
             .submenu {
