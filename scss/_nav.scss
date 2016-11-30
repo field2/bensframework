@@ -58,3 +58,25 @@ nav#primary {
         }
     }
 }
+
+
+#menutoggle, #scroll {
+    display: none;
+    cursor: pointer;
+}
+
+#menutoggle {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+
+    @media screen and (max-width: 1000px) {
+        display: block;
+    }
+}
+
+#scroll {
+    position: fixed;
+    right: 1em;
+    top: 40vh;
+} 
