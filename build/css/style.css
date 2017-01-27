@@ -193,6 +193,29 @@ nav#primary ul a {
   }
 }
 
+#menutoggle, #scroll {
+  display: none;
+  cursor: pointer;
+}
+
+#menutoggle {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
+
+@media screen and (max-width: 1000px) {
+  #menutoggle {
+    display: block;
+  }
+}
+
+#scroll {
+  position: fixed;
+  right: 1em;
+  top: 40vh;
+}
+
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   /* IE10+ CSS styles go here */
 }
@@ -313,29 +336,6 @@ a:hover {
 .reveal {
   -webkit-transform: translateX(-100vw);
           transform: translateX(-100vw);
-}
-
-#menutoggle, #scroll {
-  display: none;
-  cursor: pointer;
-}
-
-#menutoggle {
-  position: absolute;
-  right: 1em;
-  top: 1em;
-}
-
-@media screen and (max-width: 1000px) {
-  #menutoggle {
-    display: block;
-  }
-}
-
-#scroll {
-  position: fixed;
-  right: 1em;
-  top: 40vh;
 }
 
 #banner {
