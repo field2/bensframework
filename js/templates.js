@@ -1,0 +1,5 @@
+this["MyApp"] = this["MyApp"] || {};
+this["MyApp"]["templates"] = this["MyApp"]["templates"] || {};
+this["MyApp"]["templates"]["head"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<!doctype html>\n<html class=\"no-js\" lang=\"\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\">\n        <title>Title here</title>\n        <meta name=\"description\" content=\"Lorem Ipsum Dolor\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n        <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\">\n        <link rel=\"icon\" type=\"image/png\" href=\"/favicon-32x32.png\" sizes=\"32x32\">\n        <link rel=\"icon\" type=\"image/png\" href=\"/favicon-16x16.png\" sizes=\"16x16\">\n        <!-- Place favicon.ico in the root directory -->\n        <link rel=\"stylesheet\" href=\"css/normalize.css\">\n        <link rel=\"stylesheet\" href=\"css/style.css\">\n        <script src=\"js/vendor/modernizr-2.8.3.min.js\"></script>\n    </head>";
+},"useData":true});

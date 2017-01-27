@@ -4,19 +4,125 @@ and https://html5boilerplate.com/
 and https://www.isotoma.com/blog/2016/09/07/going-all-in-on-flexbox/
 used in this framework
 */
+<<<<<<< HEAD:css/style.css
+=======
+/* grid */
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: var(--space) var(--space) 0;
+  clear: both;
+}
+
+@media screen and (max-width: 1000px) {
+  .row {
+    display: block;
+  }
+}
+
+.box {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 1%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.fixed_width {
+  max-width: 1000px;
+  padding: 0;
+}
+
+.one_quarter {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 23%;
+          flex: 0 0 23%;
+}
+
+.half {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 48%;
+          flex: 0 0 48%;
+}
+
+.three_quarter {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 74.92308%;
+          flex: 0 0 74.92308%;
+}
+
+.one_third {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 32%;
+          flex: 0 0 32%;
+}
+
+@media screen and (min-width: 1000px) {
+  .one_third:first-of-type {
+    margin-left: 0;
+  }
+  .one_third:nth-of-type(3n+3) {
+    margin-right: 0;
+  }
+}
+
+>>>>>>> 0d3f71a5a9139bb0a12f64c85cffcfe8611084a5:build/css/style.css
 .icon {
-  font-size: 10px; }
+  font-size: 10px;
+}
 
 .icon:before {
   content: ' ';
   vertical-align: middle;
   display: inline-block;
-  background-image: url("../svg/sprite.svg");
+  background-image: url("/images/sprite.svg");
   background-repeat: no-repeat;
+<<<<<<< HEAD:css/style.css
   background-size: 1.6em 4.8em; }
+=======
+  background-size: 1.6em 4.8em;
+}
+>>>>>>> 0d3f71a5a9139bb0a12f64c85cffcfe8611084a5:build/css/style.css
 
-.no-svg .icon:before {
-  background-image: url("../svg/sprite.png"); }
+.icon.arrow_up:before {
+  background-position: 0em 0em;
+  width: 1.6em;
+  height: 1.6em;
+}
+
+.icon.close:before {
+  background-position: 0em -1.6em;
+  width: 1.6em;
+  height: 1.6em;
+}
+
+.icon.menu_lines:before {
+  background-position: 0em -3.2em;
+  width: 1.6em;
+  height: 1.6em;
+}
 
 .icon.arrow_up:before {
   background-position: 0em 0em;
@@ -34,60 +140,86 @@ used in this framework
   height: 1.6em; }
 
 nav a {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 /* nav#primary */
 nav#primary {
   position: relative;
   -webkit-transition: -webkit-transform 0.3s;
           transition: transform 0.3s;
-  width: 100%; }
-  @media screen and (max-width: 1000px) {
-    nav#primary > ul {
-      position: fixed;
-      width: 100%;
-      left: 100vw;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center; } }
-  nav#primary ul {
+  width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  nav#primary > ul {
+    position: fixed;
+    width: 100%;
+    left: 100vw;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 1.4em;
+  }
+  nav#primary > ul .submenu {
+    margin-bottom: 1em;
+    margin-left: 1em;
+    border-left: 2px solid #000;
+  }
+}
+
+nav#primary ul {
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: left;
+  z-index: 1;
+}
+
+nav#primary ul li {
+  position: relative;
+}
+
+nav#primary ul li .submenu {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+nav#primary ul li:hover .submenu {
+  left: -60px;
+}
+
+nav#primary ul a {
+  display: block;
+  padding: 0.5em 1em;
+}
+
+@media screen and (min-width: 1000px) {
+  nav#primary .submenu {
+    position: absolute;
+    left: -9999em;
+    width: 200px;
     background: #fff;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    z-index: 1; }
-    nav#primary ul li {
-      position: relative; }
-      nav#primary ul li .submenu {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
-        margin-bottom: 1em; }
-      nav#primary ul li:hover .submenu {
-        left: -60px; }
-    nav#primary ul a {
-      display: block;
-      padding: 0.5em 1em; }
-  @media screen and (min-width: 1000px) {
-    nav#primary .submenu {
-      position: absolute;
-      left: -9999em;
-      width: 200px;
-      background: #fff; } }
+  }
+}
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  /* IE10+ CSS styles go here */ }
+  /* IE10+ CSS styles go here */
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   display: -webkit-box;
@@ -102,14 +234,19 @@ body {
           align-items: center;
   height: 100%;
   min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont,  "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",  "Fira Sans", "Droid Sans", "Helvetica Neue",  sans-serif; }
-  @media screen and (max-width: 1000px) {
-    body {
-      padding: 0 0.5em; } }
+  font-family: -apple-system, BlinkMacSystemFont,  "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",  "Fira Sans", "Droid Sans", "Helvetica Neue",  sans-serif;
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    padding: 0 0.5em;
+  }
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-size: 1rem;
-  text-rendering: optimize-legibility; }
+  text-rendering: optimize-legibility;
+}
 
 #content {
   max-width: 1000px;
@@ -118,6 +255,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
+<<<<<<< HEAD:css/style.css
   /* 2 */
   padding: var(--space) var(--space) 0;
   width: 100%; }
@@ -125,73 +263,120 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.4rem; }
   #content h3 {
     font-size: 1.2rem; }
+=======
+  width: 100%;
+}
+
+#content h2 {
+  font-size: 1.4rem;
+}
+
+#content h3 {
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 1000px) {
+  #content {
+    margin: 0 1em;
+  }
+}
+>>>>>>> 0d3f71a5a9139bb0a12f64c85cffcfe8611084a5:build/css/style.css
 
 #content::after {
   content: '\00a0';
   display: block;
   margin-top: var(--space);
   height: 0px;
-  visibility: hidden; }
+  visibility: hidden;
+}
 
 @media (--break-lg) {
   #content {
-    padding-top: var(--space-lg); }
+    padding-top: var(--space-lg);
+  }
   #content::after {
-    margin-top: var(--space-lg); } }
+    margin-top: var(--space-lg);
+  }
+}
 
+<<<<<<< HEAD:css/style.css
 #content--full {
   padding: 0; }
 
 #content--full::after {
   content: none; }
+=======
+#content:after {
+  content: none;
+}
+>>>>>>> 0d3f71a5a9139bb0a12f64c85cffcfe8611084a5:build/css/style.css
 
 #main, #sidebar {
-  text-align: left; }
-  #main h1, #main h2, #main h3, #main h4, #sidebar h1, #sidebar h2, #sidebar h3, #sidebar h4 {
-    margin-top: 1em; }
+  text-align: left;
+}
+
+#main h1, #main h2, #main h3, #main h4, #sidebar h1, #sidebar h2, #sidebar h3, #sidebar h4 {
+  margin-top: 1em;
+}
 
 header, footer {
   -webkit-box-flex: 0;
       -ms-flex: none;
           flex: none;
-  padding: 0.5em; }
+  padding: 0.5em;
+}
 
 header h1 {
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+}
 
 @media screen and (max-width: 1000px) {
   header {
-    text-align: left; } }
+    text-align: left;
+  }
+}
 
 footer nav {
-  display: inline-block; }
+  display: inline-block;
+}
 
 a {
-  color: #62839c; }
-  a:hover {
-    color: #4e697d; }
+  color: #62839c;
+}
+
+a:hover {
+  color: #4e697d;
+}
 
 .reveal {
   -webkit-transform: translateX(-100vw);
-          transform: translateX(-100vw); }
+          transform: translateX(-100vw);
+}
 
 #menutoggle, #scroll {
   display: none;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 #menutoggle {
   position: absolute;
   right: 1em;
-  top: 1em; }
-  @media screen and (max-width: 1000px) {
-    #menutoggle {
-      display: block; } }
+  top: 1em;
+}
+
+@media screen and (max-width: 1000px) {
+  #menutoggle {
+    display: block;
+  }
+}
 
 #scroll {
   position: fixed;
   right: 1em;
-  top: 40vh; }
+  top: 40vh;
+}
 
+<<<<<<< HEAD:css/style.css
 /* grid */
 .row {
   display: -webkit-box;
@@ -245,17 +430,46 @@ a {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 74.92308%;
           flex: 0 0 74.92308%; }
+=======
+#banner {
+  width: 100%;
+  height: 40vh;
+  overflow: hidden;
+}
+
+#banner img {
+  display: block;
+  width: 100%;
+}
+
+.full_content {
+  padding: 0 1em;
+}
+>>>>>>> 0d3f71a5a9139bb0a12f64c85cffcfe8611084a5:build/css/style.css
 
 .btn {
   background: #000099;
   border: none;
   text-decoration: none;
-  cursor: pointer; }
-  .btn:hover {
-    background: #00f;
-    -webkit-transition: background 0.3s ease;
-            transition: background 0.3s ease; }
-  .btn:active {
-    background: #8080ff; }
+  cursor: pointer;
+}
 
-/*# sourceMappingURL=style.css.map */
+.btn:hover {
+  background: #00f;
+  -webkit-transition: background 0.3s ease;
+          transition: background 0.3s ease;
+}
+
+.btn:active {
+  background: #8080ff;
+}
+
+.callout {
+  text-align: left;
+  border: 1px solid;
+  padding: .5em;
+}
+
+.callout h3 {
+  text-align: center;
+}

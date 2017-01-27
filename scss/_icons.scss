@@ -3,19 +3,27 @@
 }
 
 .icon:before {
-    content:' ';
-    vertical-align:middle;
+    content: ' ';
+    vertical-align: middle;
     display: inline-block;
-    background-image: url("../svg/sprite.svg");
+    background-image: url("/images/sprite.svg");
     background-repeat: no-repeat;
     background-size: 1.6em 4.8em;
 }
 
-.no-svg .icon:before {
-    background-image: url("../svg/sprite.png");
+.icon.arrow_up:before {
+    background-position: 0em 0em;
+    width: 1.6em;
+    height: 1.6em;
 }
 
+.icon.close:before {
+    background-position: 0em -1.6em;
+    width: 1.6em;
+    height: 1.6em;
+}
 
+<<<<<<< HEAD
 
   .icon.arrow_up:before {
       background-position: 0em 0em;
@@ -45,3 +53,10 @@
 
 
 
+=======
+.icon.menu_lines:before {
+    background-position: 0em -3.2em;
+    width: 1.6em;
+    height: 1.6em;
+}
+>>>>>>> 0d3f71a5a9139bb0a12f64c85cffcfe8611084a5
