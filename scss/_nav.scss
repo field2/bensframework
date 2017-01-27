@@ -9,7 +9,8 @@ nav#primary {
     position: relative;
     transition: transform 0.3s;
     will-change: transform;
-    width: 100%;
+    // width: 100%;
+    float:left;
     > ul {
         @media screen and (max-width: 1000px) {
             position: fixed;

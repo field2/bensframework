@@ -10,7 +10,7 @@ var nunjucksRender = require('gulp-nunjucks-render');
 var svgSprite = require("gulp-svg-sprites");
 var sassOptions = { outputStyle: 'expanded' };
 
-gulp.task('watch', ['sass', 'nunjucks'], function() {
+gulp.task('watch', ['sass', 'nunjucks', 'imagemin'], function() {
 browserSync.init({
         server: {
             baseDir: './build'
@@ -20,6 +20,7 @@ browserSync.init({
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
     gulp.watch('./pages/*.html', ['nunjucks']);
+    gulp.watch('./templates/*.html', ['nunjucks']);
 
 });
 
