@@ -2,40 +2,47 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
-var livereload = require('gulp-livereload');
 var autoprefixer = require('gulp-autoprefixer');
 var imagemin = require('gulp-imagemin');
 var browserSync = require('browser-sync').create();
 var nunjucksRender = require('gulp-nunjucks-render');
-var svgSprite = require("gulp-svg-sprites");
 var sassOptions = { outputStyle: 'expanded' };
 
-gulp.task('watch', ['sass', 'nunjucks', 'imagemin'], function() {
-browserSync.init({
-        server: {
-            baseDir: './build'
-        }
-    });
-    gulp.watch('./scss/*.scss', ['sass']).on('change', function(event) {
-        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-    });
-    gulp.watch('./**/*.html', ['nunjucks']);
-
-
-});
 
 
 
+
+
+var config = {
+	sass: {
+		src: './scss/*.{scss,sass}',
+		dest: './build/css',
+		opts: {
+
+		}
+	},
+	injectChanges: true,
+	server: {
+		baseDir: './build/'
+	}
+
+
+
+};
+
+
+// ---------------------------------------------- Gulp Tasks
 gulp.task('sass', function() {
-   return gulp.src('scss/*.scss')
-        // .pipe(sourcemaps.init())
-        // .pipe(plumber())
-        .pipe(sass(sassOptions).on('error', sass.logError))
-        .pipe(autoprefixer('last 2 version'))
-        .pipe(sourcemaps.write('build/css'))
-        .pipe(gulp.dest('build/css'))
+	return gulp.src(config.sass.src)
+		.pipe(sass().on('error', sass.logError))
+		.pipe(gulp.dest(config.sass.dest))
+   .pipe(browserSync.reload({ stream: true}));
+
 });
 
+gulp.task('browserSync', function() {
+	browserSync.init(config);
+});
 
 gulp.task('nunjucks', function() {
     nunjucksRender.nunjucks.configure(['templates']);
@@ -44,24 +51,38 @@ gulp.task('nunjucks', function() {
             path: ['templates']
         }))
         .pipe(gulp.dest('build'))
+        .pipe(browserSync.reload({ stream: true}));
 
 });
 
-/* extra tasks, only run when needed */
-gulp.task('imagemin', function() {
-    gulp.src('images/*')
-        .pipe(imagemin())
-        .pipe(gulp.dest('build/images'))
+
+// ------------------------------------ Gulp Testing Message
+gulp.task('message', function() {
+	console.log('It works!!');
 });
 
-gulp.task('sprites', function() {
-    return gulp.src('source/svg/*.svg')
-        .pipe(svgSprite({
-            cssFile: 'scss/_icons.scss',
-        }))
-        .pipe(gulp.dest("build"));
+// ---------------------------------------------- Gulp Watch
+gulp.task('watch:styles', function() {
+	gulp.watch(config.sass.src, gulp.series('sass'));
 });
 
+gulp.task('watch:nunjucks', function() {
+	gulp.watch('./**/*.html', gulp.series('nunjucks'));
+});
 
-/* default task, runs with just gulp */
-gulp.task('default', ['watch']);
+gulp.task('watch', gulp.series('sass', 'nunjucks',
+	gulp.parallel('watch:styles'),
+	gulp.parallel('watch:nunjucks')
+
+));
+
+
+// -------------------------------------------- Default task
+gulp.task('default', gulp.series(
+	gulp.parallel(
+	'sass','nunjucks'),
+		gulp.parallel(
+	'nunjucks'),
+	gulp.parallel('watch','browserSync')
+));
+
