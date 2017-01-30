@@ -6,14 +6,12 @@ used in this framework
 */
 /*fonts */
 /* colors */
-/* image */
-/* layout */
+/* shadows */
+/* breakpoints */
 /* grid */
 .row, .col {
   position: relative;
-}
-
-.row {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -53,10 +51,19 @@ used in this framework
           justify-content: space-between;
 }
 
-.flex1 {
+.fill {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+
+.center {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .wrapper {
@@ -174,9 +181,10 @@ nav#primary ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   text-align: left;
   z-index: 1;
 }
@@ -263,7 +271,12 @@ body {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-size: 1rem;
   text-rendering: optimize-legibility;
 }
@@ -313,11 +326,19 @@ h1, h2, h3, h4, h5, h6 {
   content: none;
 }
 
-#main, #sidebar {
+#main,
+#sidebar {
   text-align: left;
 }
 
-#main h1, #main h2, #main h3, #main h4, #sidebar h1, #sidebar h2, #sidebar h3, #sidebar h4 {
+#main h1,
+#main h2,
+#main h3,
+#main h4,
+#sidebar h1,
+#sidebar h2,
+#sidebar h3,
+#sidebar h4 {
   margin-top: 1em;
 }
 
@@ -337,13 +358,17 @@ header h1 img {
   display: block;
   width: 200px;
   height: auto;
-  float: left;
+  margin-right: 24px;
 }
 
 @media screen and (max-width: 1200px) {
   header {
     text-align: left;
   }
+}
+
+header .btn {
+  margin-right: 24px;
 }
 
 footer nav {
@@ -379,18 +404,15 @@ a:hover {
 }
 
 .btn {
-  display: inline-block;
   text-align: center;
   color: rgba(255, 255, 255, 0.8);
   font: "Nunito Sans", sans-serif;
   padding: .5em 1em;
-  background: #00f;
-  border: none;
+  color: #484F5A;
+  border: 2px solid #484F5A;
   text-decoration: none;
-  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5);
   cursor: pointer;
   border-radius: .3em;
-  border-bottom: 4px solid rgba(0, 0, 0, 0.5);
   -webkit-transition: all .3s ease;
           transition: all .3s ease;
   text-transform: uppercase;
@@ -401,7 +423,7 @@ a:hover {
 }
 
 .btn:hover {
-  background: #00f;
+  background: #484F5A;
   -webkit-transition: background 0.3s ease;
           transition: background 0.3s ease;
   opacity: 1;
@@ -409,7 +431,7 @@ a:hover {
 }
 
 .btn:active {
-  background: navy;
+  background: #0f1113;
 }
 
 .btn .fa {
@@ -428,18 +450,15 @@ a:hover {
 }
 
 .headerbuttons {
-  display: inline-block;
   text-align: center;
   color: rgba(255, 255, 255, 0.8);
   font: "Nunito Sans", sans-serif;
   padding: .5em 1em;
-  background: #fff;
-  border: none;
+  color: #fff;
+  border: 2px solid #484F5A;
   text-decoration: none;
-  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5);
   cursor: pointer;
   border-radius: .3em;
-  border-bottom: 4px solid rgba(0, 0, 0, 0.5);
   -webkit-transition: all .3s ease;
           transition: all .3s ease;
   text-transform: uppercase;
@@ -464,4 +483,11 @@ a:hover {
 .headerbuttons .fa {
   -webkit-transition: -webkit-transform .2s ease;
           transition: transform .2s ease;
+}
+
+.tel {
+  text-align: center;
+  font-size: 30px;
+  text-decoration: none;
+  font-weight: bold;
 }

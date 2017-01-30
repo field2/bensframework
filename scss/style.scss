@@ -4,30 +4,35 @@ and https://html5boilerplate.com/
 and https://www.isotoma.com/blog/2016/09/07/going-all-in-on-flexbox/
 used in this framework
 */
+
 @import "vars";
 @import "mixins";
 @import "layout";
 @import "icons";
 @import "nav";
 @import "ie";
-
 * {
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
 
 body {
     display: flex;
     flex-direction: column;
-    align-items:center; 
+    align-items: center;
     height: 100%;
-    min-height:100vh;
-font-family: $font_primary;
+    min-height: 100vh;
+    font-family: $font_primary;
     @media screen and (max-width: $desktop) {
         padding: 0 0.5em;
     }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-size: 1rem;
     text-rendering: optimize-legibility;
 }
@@ -38,18 +43,16 @@ h1, h2, h3, h4, h5, h6 {
     h2 {
         font-size: 1.4rem;
     }
-
     h3 {
         font-size: 1.2rem;
     }
-
     flex: 1 0 auto;
     @media screen and (max-width:$desktop) {
-  margin: 0 1em;
-}
+        margin: 0 1em;
+    }
     width: 100%;
 }
- 
+
 #content::after {
     content: '\00a0';
     display: block;
@@ -62,51 +65,52 @@ h1, h2, h3, h4, h5, h6 {
     #content {
         padding-top: var(--space-lg);
     }
-
     #content::after {
         margin-top: var(--space-lg);
     }
 }
 
-
-
 #content:after {
     content: none;
 }
 
-#main, #sidebar {
+#main,
+#sidebar {
     text-align: left;
-
-    h1, h2, h3, h4 {
+    h1,
+    h2,
+    h3,
+    h4 {
         margin-top: 1em;
     }
 }
 
-header, footer {
-}
+header,
+footer {}
 
 header {
     > .row {
-        align-items:stretch;
+        align-items: stretch;
     }
-       h1 {
-    
-    text-indent: -9999em;
-    padding:0;
-    margin:0;
-    img {
-        display: block;
-        width:200px;
-        height:auto;
-        float:left;
+    h1 {
+        text-indent: -9999em;
+        padding: 0;
+        margin: 0;
+        img {
+            display: block;
+            width: 200px;
+            height: auto;
+            margin-right:24px;
+        }
+
     }
-
-}
-
     @media screen and (max-width: $desktop) {
         text-align: left;
     }
-} 
+            .btn {
+            margin-right: 24px;
+        }
+}
 
 footer nav {
     display: inline-block;
@@ -114,7 +118,6 @@ footer nav {
 
 a {
     color: #62839c;
-
     &:hover {
         color: darken(#62839c, 10%);
     }
@@ -124,26 +127,23 @@ a {
     transform: translateX(-100vw);
 }
 
-
-
 #banner {
-    width:100%; 
-    height:40vh;
-    overflow:hidden;  
+    width: 100%;
+    height: 40vh;
+    overflow: hidden;
     img {
-        display:block;
-        width:100%; 
+        display: block;
+        width: 100%;
     }
 }
 
 .full_content {
-    padding:0 1em;
+    padding: 0 1em;
 }
 
 .btn {
-    @include btn(#00f);
+    @include btn($color_accent);
 }
-
 
 .callout {
     text-align: left;
@@ -154,9 +154,13 @@ a {
     padding:.5em;
 }
 
-
-
-
 .headerbuttons {
     @include btn(#fff);
+}
+
+.tel {
+    text-align: center;
+    font-size: 30px;
+    text-decoration: none;
+    font-weight: bold;
 }

@@ -1,16 +1,13 @@
 @mixin btn($bg) {
-    display: inline-block;
     text-align: center;
     color: rgba(#fff,0.8);
     font: $font-primary;
     padding: .5em 1em;
-    background: $bg;
-    border: none;
+    color: $bg;
+    border:2px solid $color_accent;
     text-decoration: none;
-    text-shadow: -1px -1px 0 rgba(#000, 0.5);
     cursor: pointer;
     border-radius: .3em;
-    border-bottom: 4px solid rgba(0, 0, 0, 0.5);
     
     transition: all .3s ease;
     text-transform: uppercase;

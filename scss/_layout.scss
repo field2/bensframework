@@ -3,11 +3,12 @@
 
 .row, .col {
     position:relative;
+    width:100%;
+    display:flex;
 }
 .row {
-    display: flex;
     @media screen and (max-width: $desktop) {
-        flex-direction:column;;
+        flex-direction:column;
     }
 }
 
@@ -23,8 +24,13 @@
     margin: 1%;
     justify-content: space-between;
 }
-.flex1 {
+.fill {
     flex:1;
+}
+
+.center {
+    justify-content:space-between;
+    align-items:center;
 }
 .wrapper {
     max-width:desktop;
