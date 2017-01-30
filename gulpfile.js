@@ -19,8 +19,8 @@ browserSync.init({
     gulp.watch('./scss/*.scss', ['sass']).on('change', function(event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
-    gulp.watch('./pages/*.html', ['nunjucks']);
-    gulp.watch('./templates/*.html', ['nunjucks']);
+    // gulp.watch('./pages/*.html', ['nunjucks']);
+    gulp.watch('./**/*.html', ['nunjucks']);
 
 });
 
@@ -38,7 +38,7 @@ gulp.task('sass', function() {
         // .pipe(plumber())
         .pipe(sass(sassOptions).on('error', sass.logError))
         .pipe(autoprefixer('last 2 version'))
-        // .pipe(sourcemaps.write('./'))
+        .pipe(sourcemaps.write('build/css'))
         .pipe(gulp.dest('build/css'))
          .pipe(browserSync.reload({ stream: true}));
 });
